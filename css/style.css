@@ -583,4 +583,125 @@ body {
   line-height: 1.8;
   color: #8C837D;
   margin-bottom: 1.5rem;
+}
+
+.main {
+  padding-bottom: 5rem;
+}
+
+.pageHeader {
+  background-color: #FFFFFF;
+  text-align: center;
+  padding: 4rem 2rem;
+  border-bottom: 1px solid #E5E0DB;
+}
+
+.pageTitle {
+  font-family: var(--font-primary);
+  font-size: 3rem;
+}
+
+.pageDescription {
+  font-size: 1.1rem;
+  color: #8C837D;
+  max-width: 600px;
+  margin: 0.5rem auto 0;
+}
+
+.contactContainer {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 4rem;
+  max-width: 1100px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+}
+@media (max-width: 768px) {
+  .contactContainer {
+    grid-template-columns: 1fr;
+  }
+}
+
+.contactInfo h3 {
+  font-family: var(--font-primary);
+  font-size: 1.8rem;
+  color: #4A4441;
+  margin-bottom: 1rem;
+}
+.contactInfo p {
+  color: #8C837D;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.infoList {
+  list-style: none;
+}
+.infoList li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+.infoList .icon {
+  color: #A1887F;
+  font-size: 1.5rem;
+  margin-right: 1rem;
+}
+
+.contactForm {
+  background-color: #FFFFFF;
+  padding: 2.5rem;
+  border-radius: 12px;
+  border: 1px solid #E5E0DB;
+}
+.contactForm h3 {
+  font-family: var(--font-primary);
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+}
+
+.formGroup {
+  margin-bottom: 1.5rem;
+}
+.formGroup label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.formGroup input,
+.formGroup textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid #E5E0DB;
+  border-radius: 8px;
+  font-family: var(--font-secondary);
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.formGroup input:focus,
+.formGroup textarea:focus {
+  outline: none;
+  border-color: #A1887F;
+  box-shadow: 0 0 0 3px rgba(161, 136, 127, 0.2);
+}
+.formGroup textarea {
+  resize: vertical;
+}
+
+.submitButton {
+  width: 100%;
+  padding: 1rem;
+  background-color: #A1887F;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  font-family: var(--font-primary);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.submitButton:hover {
+  background-color: #84675c;
 }/*# sourceMappingURL=style.css.map */

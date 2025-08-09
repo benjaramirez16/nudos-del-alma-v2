@@ -1,0 +1,135 @@
+@use '../abstracts/variables' as var;
+
+.main {
+  padding-bottom: 5rem;
+}
+
+// Reutilizamos los estilos de encabezado de página
+.pageHeader {
+  background-color: var.$color-white;
+  text-align: center;
+  padding: 4rem 2rem;
+  border-bottom: 1px solid var.$color-border;
+}
+
+.pageTitle {
+  font-family: var.$font-primary;
+  font-size: 3rem;
+}
+
+.pageDescription {
+  font-size: 1.1rem;
+  color: var.$color-text-light;
+  max-width: 600px;
+  margin: 0.5rem auto 0;
+}
+
+// Contenedor principal con dos columnas
+.contactContainer {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 4rem;
+  max-width: 1100px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.contactInfo {
+  h3 {
+    font-family: var.$font-primary;
+    font-size: 1.8rem;
+    color: var.$color-text;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    color: var.$color-text-light;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+}
+
+.infoList {
+  list-style: none;
+
+  li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+  }
+
+  .icon {
+    color: var.$color-primary;
+    font-size: 1.5rem;
+    margin-right: 1rem;
+  }
+}
+
+// Estilos para el formulario
+.contactForm {
+  background-color: var.$color-white;
+  padding: 2.5rem;
+  border-radius: 12px;
+  border: 1px solid var.$color-border;
+
+  h3 {
+    font-family: var.$font-primary;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.formGroup {
+  margin-bottom: 1.5rem;
+
+  label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var.$color-border;
+    border-radius: 8px;
+    font-family: var.$font-secondary;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+    &:focus {
+      outline: none;
+      border-color: var.$color-primary;
+      box-shadow: 0 0 0 3px rgba(var.$color-primary, 0.2);
+    }
+  }
+
+  textarea {
+    resize: vertical;
+  }
+}
+
+.submitButton {
+  width: 100%;
+  padding: 1rem;
+  background-color: var.$color-primary;
+  color: var.$color-white;
+  border: none;
+  border-radius: 8px;
+  font-family: var.$font-primary;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    // Usamos nuestra nueva variable pre-calculada
+    background-color: var.$color-primary-dark;
+  }
+}
