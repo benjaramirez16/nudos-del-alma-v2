@@ -1,8 +1,6 @@
-import ProductCard from '@/components/ProductCard'; // <-- RUTA ABSOLUTA, LA SOLUCIÓN DEFINITIVA
-import styles from '@/scss/components/_featuredProducts.module.scss';
+// src/data/products.js
 
-// Hemos expandido la lista de productos
-const products = [
+export const products = [
   {
     id: 1,
     name: 'Tapiz "Sol del Desierto"',
@@ -40,23 +38,3 @@ const products = [
     imageUrl: '/images/producto-camino-mesa.jpg',
   },
 ];
-
-const FeaturedProducts = () => {
-  return (
-    <section className={styles.featured}>
-      <h2 className={styles.featured__title}>Nuestros Favoritos</h2>
-      <div className={styles.featured__grid}>
-        {products.map((product) => (
-          <ProductCard
-            key={product.id}
-            name={product.name}
-            price={product.price}
-            imageUrl={product.imageUrl}
-          />
-        ))}
-      </div>
-    </section>
-  );
-};
-
-export default FeaturedProducts;

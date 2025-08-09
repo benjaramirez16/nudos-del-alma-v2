@@ -1,0 +1,73 @@
+@use '../abstracts/variables' as var;
+
+// Reutilizamos los estilos del encabezado de la página de productos
+.pageHeader {
+  background-color: var.$color-white;
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.pageTitle {
+  font-family: var.$font-primary;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var.$color-text;
+  margin-bottom: 1rem;
+}
+
+.pageDescription {
+  font-size: 1.1rem;
+  color: var.$color-text-light;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+// Contenido principal de la página
+.contentSection {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr; // Dividimos en dos columnas, una para la imagen y otra para el texto
+  gap: 4rem;
+  max-width: 1100px;
+  margin: 4rem auto;
+  padding: 2rem;
+  align-items: flex-start;
+
+  // En pantallas más pequeñas, las columnas se apilan
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.imageContainer {
+  width: 100%;
+}
+
+.profileImage {
+  width: 100%;
+  height: auto; // La altura se ajusta automáticamente
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.textContainer {
+  h2 {
+    font-family: var.$font-primary;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var.$color-text;
+    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  p {
+    font-family: var.$font-secondary;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var.$color-text-light;
+    margin-bottom: 1.5rem;
+  }
+}
