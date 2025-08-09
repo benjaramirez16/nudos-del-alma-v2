@@ -1,0 +1,25 @@
+// Arquitectura 7-1 con el sistema de módulos de SASS
+
+// 1. Abstracts (variables, mixins, funciones)
+// Los "reenviamos" para que estén disponibles para otros módulos que los necesiten.
+@forward 'abstracts/variables';
+@forward 'abstracts/mixins';
+
+// 2. Base (reset, tipografía, etc.)
+// Estos los "usamos" directamente porque aplican estilos globales.
+@use 'base/reset';
+@use 'base/typography';
+@use 'base/base';
+
+// 3. Components (botones, cards, header, etc.)
+// También los "usamos" para que sus estilos se incluyan en el CSS final.
+@use 'components/header.module';
+@use 'components/hero.module';
+@use 'components/productCard.module';
+@use 'components/categories.module';
+@use 'components/aboutTeaser.module';
+@use 'components/featuredProducts.module';
+@use 'components/footer.module';
+
+// 4. Pages (estilos específicos de páginas)
+@use 'pages/productos.module';

@@ -1,0 +1,55 @@
+@use '../abstracts/variables' as var;
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 90vh;
+  padding: 2rem;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/images/hero-background.jpg');
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  color: var.$color-white; // El texto principal del Hero seguirá siendo blanco para contrastar con el fondo
+}
+
+.hero__content {
+  max-width: 800px;
+}
+
+.hero__title {
+  font-family: var.$font-primary; // Ahora usará Cormorant Garamond
+  font-size: 4.5rem; // Un poco más grande para el estilo serif
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.3); // Sombra sutil para legibilidad
+}
+
+.hero__description {
+  font-family: var.$font-secondary; // Ahora usará Lato
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  font-weight: 300;
+}
+
+.hero__button {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  // Ahora el borde usa el color de texto principal, que es más visible
+  border: 2px solid var.$color-white;
+  border-radius: 50px;
+  font-family: var.$font-primary;
+  font-weight: 600;
+  color: var.$color-white;
+  background-color: transparent;
+  text-decoration: none;
+  transition: all 0.3s ease;
+
+  &:hover {
+    // El hover ahora usa nuestro nuevo color de acento
+    background-color: var.$color-primary;
+    border-color: var.$color-primary;
+    color: var.$color-white;
+    transform: translateY(-3px);
+  }
+}

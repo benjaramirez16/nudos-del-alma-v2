@@ -1,0 +1,11 @@
+// Fuentes de Google Fonts (los nombres son placeholders, la fuente real se define en layout.js)
+$font-primary: var(--font-primary);   // Para títulos, ahora será una fuente Serif
+$font-secondary: var(--font-secondary); // Para párrafos, una fuente Sans-serif limpia
+
+// Paleta de Colores "Nudos del Alma" - Tonos Tierra y Naturales
+$color-background: #FBF9F6;      // Un beige muy cálido y sutil, como papel artesanal
+$color-text: #4A4441;             // Un gris oscuro, casi marrón, más suave que el negro puro
+$color-text-light: #8C837D;      // Un gris/marrón más claro para texto secundario
+$color-primary: #A1887F;          // Un marrón terroso como acento principal (para botones, hovers)
+$color-white: #FFFFFF;           // Blanco puro, para usar con moderación
+$color-border: #E5E0DB;      // Un color suave para bordes y separadores

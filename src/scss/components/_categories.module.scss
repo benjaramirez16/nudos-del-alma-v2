@@ -1,0 +1,93 @@
+@use '../abstracts/variables' as var;
+
+.categories {
+  padding: 5rem 2rem;
+  background-color: var.$color-white;
+  text-align: center;
+  position: relative; // Necesario para que el apilamiento funcione bien
+  border-radius: 20px 20px 0 0; // Redondeamos las esquinas superiores
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.08); // Una sombra superior para realzar el efecto de capa
+
+  // FUNDAMENTO 1: PROFUNDIDAD Y COMPOSICIÓN
+  // Un margen negativo para "subir" la sección y que se superponga con el Hero.
+  margin-top: -80px;
+}
+
+.categories__title {
+  font-family: var.$font-primary;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  color: var.$color-text;
+
+  // FUNDAMENTO 3: TIPOGRAFÍA REFINADA
+  // Añadimos espaciado para un look más "premium" y legible.
+  letter-spacing: 1.5px;
+}
+
+.categories__container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 3rem;
+  flex-wrap: wrap;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.categoryItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: var.$color-text;
+  cursor: pointer;
+}
+
+.categoryItem__imageWrapper {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  
+  // FUNDAMENTO 2: MICROINTERACCIONES
+  // Añadimos un borde sutil y transparente que se coloreará en el hover.
+  border: 4px solid transparent;
+  transition: border-color 0.4s ease;
+
+  // La imagen dentro del contenedor
+  // Necesitamos apuntar a la imagen real para el efecto de zoom.
+  // Next.js envuelve la <img> en un <div>, por eso la selección es un poco más compleja.
+  & img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+}
+
+.categoryItem__name {
+  font-family: var.$font-primary;
+  font-size: 1.5rem;
+  font-weight: 600;
+  transition: color 0.4s ease;
+}
+
+// Aquí ocurre la magia del hover
+.categoryItem:hover {
+  .categoryItem__imageWrapper {
+    // El borde ahora toma el color primario
+    border-color: var.$color-primary;
+
+    // La imagen dentro escala, creando el efecto de zoom
+    & img {
+      transform: scale(1.1);
+    }
+  }
+  
+  .categoryItem__name {
+    // El nombre también cambia de color para completar la interacción
+    color: var.$color-primary;
+  }
+}

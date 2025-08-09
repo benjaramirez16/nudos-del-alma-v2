@@ -1,0 +1,10 @@
+@use '../abstracts/variables' as var;
+
+body {
+  // Usamos la fuente secundaria (Roboto), que es ideal para párrafos.
+  font-family: var.$font-secondary;
+  // Corregimos al nombre de variable actual: $color-text
+  color: var.$color-text;
+  background-color: var.$color-background;
+  line-height: 1.6;
+}

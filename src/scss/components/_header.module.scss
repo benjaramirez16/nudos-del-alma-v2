@@ -1,0 +1,43 @@
+@use '../abstracts/variables' as var;
+
+.header {
+  padding: 1.5rem 2rem;
+  background-color: var.$color-white;
+  // Usamos nuestra nueva variable para bordes
+  border-bottom: 1px solid var.$color-border;
+}
+
+.header__nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header__logo {
+  // Ahora usará la fuente Serif (Cormorant Garamond)
+  font-family: var.$font-primary;
+  font-weight: 700;
+  font-size: 1.8rem; // Un poco más grande para que la serifa luzca
+  color: var.$color-text;
+  text-decoration: none;
+}
+
+.header__list {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.header__link {
+  font-family: var.$font-secondary; // Fuente Sans-serif (Lato)
+  text-decoration: none;
+  color: var.$color-text-light;
+  font-weight: 400; // Un peso normal para Lato se ve muy bien
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: var.$color-primary; // Nuestro nuevo color de acento
+  }
+}
