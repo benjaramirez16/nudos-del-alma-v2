@@ -774,4 +774,74 @@ body {
 }
 .addToCartButton:hover {
   background-color: #84675c;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  padding: 2rem;
+}
+
+.loginCard {
+  width: 100%;
+  max-width: 400px;
+  padding: 2.5rem;
+  background-color: #FFFFFF;
+  border: 1px solid #E5E0DB;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+}
+
+.title {
+  font-family: var(--font-primary);
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #4A4441;
+}
+
+.formGroup {
+  margin-bottom: 1.5rem;
+}
+.formGroup label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.formGroup input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid #E5E0DB;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+.formGroup input:focus {
+  outline: none;
+  border-color: #A1887F;
+  box-shadow: 0 0 0 3px rgba(161, 136, 127, 0.2);
+}
+
+.button {
+  width: 100%;
+  padding: 1rem;
+  background-color: #A1887F;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  font-family: var(--font-primary);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.button:hover {
+  background-color: #84675c;
+}
+
+.error {
+  color: #D32F2F;
+  text-align: center;
+  margin-top: 1.5rem;
 }/*# sourceMappingURL=style.css.map */
