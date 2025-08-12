@@ -1,62 +1,19 @@
-import ProductCard from '@/components/ProductCard'; // <-- RUTA ABSOLUTA, LA SOLUCIÓN DEFINITIVA
-import styles from '@/scss/components/_featuredProducts.module.scss';
+import FeaturedProducts from '@/components/FeaturedProducts';
+import styles from '@/scss/pages/_productos.module.scss';
 
-// Hemos expandido la lista de productos
-const products = [
-  {
-    id: 1,
-    name: 'Tapiz "Sol del Desierto"',
-    price: '4,500',
-    imageUrl: '/images/producto-tapiz.jpg',
-  },
-  {
-    id: 2,
-    name: 'Espejo "Reflejo Bohemio"',
-    price: '6,200',
-    imageUrl: '/images/producto-espejo.jpg',
-  },
-  {
-    id: 3,
-    name: 'Llavero "Nudo Simple"',
-    price: '900',
-    imageUrl: '/images/producto-llavero.jpg',
-  },
-  {
-    id: 4,
-    name: 'Manta "Abrazo de Algodón"',
-    price: '7,800',
-    imageUrl: '/images/producto-manta.jpg',
-  },
-  {
-    id: 5,
-    name: 'Set de Posavasos "Circular"',
-    price: '1,200',
-    imageUrl: '/images/producto-posavasos.jpg',
-  },
-  {
-    id: 6,
-    name: 'Camino de Mesa "Rústico"',
-    price: '3,500',
-    imageUrl: '/images/producto-camino-mesa.jpg',
-  },
-];
-
-const FeaturedProducts = () => {
+const ProductosPage = () => {
   return (
-    <section className={styles.featured}>
-      <h2 className={styles.featured__title}>Nuestros Favoritos</h2>
-      <div className={styles.featured__grid}>
-        {products.map((product) => (
-          <ProductCard
-            key={product.id}
-            name={product.name}
-            price={product.price}
-            imageUrl={product.imageUrl}
-          />
-        ))}
+    <main className={styles.main}>
+      <div className={styles.pageHeader}>
+        <h1 className={styles.pageTitle}>Nuestro Catálogo</h1>
+        <p className={styles.pageDescription}>
+          Explora todas nuestras creaciones hechas a mano, cada una con una historia única.
+        </p>
       </div>
-    </section>
+      
+      <FeaturedProducts />
+    </main>
   );
 };
 
-export default FeaturedProducts;
+export default ProductosPage;

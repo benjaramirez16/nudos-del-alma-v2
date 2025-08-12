@@ -1,7 +1,7 @@
 import Hero from '@/components/Hero';
 import Categories from '@/components/Categories';
 import AboutTeaser from '@/components/AboutTeaser';
-import FeaturedProducts from '@/components/FeaturedProducts'; // <-- 1. Importamos el nuevo componente
+import FeaturedProducts from '@/components/FeaturedProducts';
 
 export default function Home() {
   return (
@@ -9,7 +9,7 @@ export default function Home() {
       <Hero />
       <Categories />
       <AboutTeaser />
-      <FeaturedProducts /> 
+      <FeaturedProducts />
     </main>
   );
 }

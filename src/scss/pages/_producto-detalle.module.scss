@@ -1,0 +1,71 @@
+@use '../abstracts/variables' as var;
+
+.main {
+  padding: 4rem 2rem;
+}
+
+.productContainer {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: flex-start;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.imageColumn {
+  width: 100%;
+}
+
+.productImage {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.detailsColumn {
+  position: sticky;
+  top: 120px; // Para que se quede fijo al hacer scroll
+}
+
+.productName {
+  font-family: var.$font-primary;
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.productPrice {
+  font-family: var.$font-secondary;
+  font-size: 1.8rem;
+  color: var.$color-text-light;
+  margin-bottom: 2rem;
+}
+
+.productDescription {
+  font-family: var.$font-secondary;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.addToCartButton {
+  width: 100%;
+  padding: 1rem;
+  background-color: var.$color-primary;
+  color: var.$color-white;
+  border: none;
+  border-radius: 8px;
+  font-family: var.$font-primary;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: var.$color-primary-dark;
+  }
+}
