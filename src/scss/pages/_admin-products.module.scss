@@ -1,0 +1,101 @@
+@use '../abstracts/variables' as var;
+
+.container {
+  padding: 2rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var.$color-border;
+
+  h1 {
+    font-family: var.$font-primary;
+    font-size: 2rem;
+  }
+}
+
+.addButton {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: var.$color-primary;
+  color: var.$color-white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: var.$color-primary-dark;
+  }
+}
+
+.tableWrapper {
+  background-color: var.$color-white;
+  border: 1px solid var.$color-border;
+  border-radius: 12px;
+  overflow-x: auto; // Para responsividad en tablas
+}
+
+.productsTable {
+  width: 100%;
+  border-collapse: collapse;
+
+  th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var.$color-border;
+    vertical-align: middle;
+  }
+
+  th {
+    font-family: var.$font-primary;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var.$color-text-light;
+  }
+  
+  tbody tr:last-child td {
+    border-bottom: none;
+  }
+}
+
+.productImage {
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+  min-width: 150px;
+}
+
+.actionButton {
+  padding: 0.5rem 1rem;
+  border: 1px solid var.$color-border;
+  background: transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: var.$color-text;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: var.$color-border;
+  }
+}
+
+.deleteButton {
+  color: #D32F2F;
+  &:hover {
+    background-color: #D32F2F;
+    border-color: #D32F2F;
+    color: white;
+  }
+}

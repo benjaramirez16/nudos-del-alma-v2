@@ -1,0 +1,66 @@
+@use '../abstracts/variables' as var;
+
+.formContainer {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2.5rem;
+  background-color: var.$color-white;
+  border: 1px solid var.$color-border;
+  border-radius: 12px;
+
+  h1 {
+    font-family: var.$font-primary;
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+}
+
+.formGroup {
+  margin-bottom: 1.5rem;
+
+  label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var.$color-border;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+    &:focus {
+      outline: none;
+      border-color: var.$color-primary;
+      box-shadow: 0 0 0 3px rgba(var.$color-primary, 0.2);
+    }
+  }
+
+  small {
+    display: block;
+    margin-top: 0.5rem;
+    color: var.$color-text-light;
+  }
+}
+
+.submitButton {
+  width: 100%;
+  padding: 1rem;
+  margin-top: 1rem;
+  background-color: var.$color-primary;
+  color: var.$color-white;
+  border: none;
+  border-radius: 8px;
+  font-family: var.$font-primary;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: var.$color-primary-dark;
+  }
+}

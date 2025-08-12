@@ -844,4 +844,219 @@ body {
   color: #D32F2F;
   text-align: center;
   margin-top: 1.5rem;
+}
+
+.dashboard {
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 2rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #E5E0DB;
+}
+.header h1 {
+  font-family: var(--font-primary);
+  font-size: 2.8rem;
+  margin-bottom: 0.5rem;
+}
+.header p {
+  font-size: 1.1rem;
+  color: #8C837D;
+}
+
+.nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.navLink,
+.navLinkDisabled {
+  display: block;
+  padding: 2rem;
+  text-align: center;
+  font-family: var(--font-primary);
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid #E5E0DB;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.navLink {
+  background-color: #FFFFFF;
+  color: #4A4441;
+}
+.navLink:hover {
+  background-color: #A1887F;
+  border-color: #A1887F;
+  color: #FFFFFF;
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.navLinkDisabled {
+  background-color: #f9fafb;
+  color: #8C837D;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.container {
+  padding: 2rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #E5E0DB;
+}
+.header h1 {
+  font-family: var(--font-primary);
+  font-size: 2rem;
+}
+
+.addButton {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #A1887F;
+  color: #FFFFFF;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+.addButton:hover {
+  background-color: #84675c;
+}
+
+.tableWrapper {
+  background-color: #FFFFFF;
+  border: 1px solid #E5E0DB;
+  border-radius: 12px;
+  overflow-x: auto;
+}
+
+.productsTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+.productsTable th, .productsTable td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #E5E0DB;
+  vertical-align: middle;
+}
+.productsTable th {
+  font-family: var(--font-primary);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #8C837D;
+}
+.productsTable tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.productImage {
+  border-radius: 6px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+  min-width: 150px;
+}
+
+.actionButton {
+  padding: 0.5rem 1rem;
+  border: 1px solid #E5E0DB;
+  background: transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: #4A4441;
+  transition: all 0.2s ease;
+}
+.actionButton:hover {
+  background-color: #E5E0DB;
+}
+
+.deleteButton {
+  color: #D32F2F;
+}
+.deleteButton:hover {
+  background-color: #D32F2F;
+  border-color: #D32F2F;
+  color: white;
+}
+
+.formContainer {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2.5rem;
+  background-color: #FFFFFF;
+  border: 1px solid #E5E0DB;
+  border-radius: 12px;
+}
+.formContainer h1 {
+  font-family: var(--font-primary);
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.formGroup {
+  margin-bottom: 1.5rem;
+}
+.formGroup label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.formGroup input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid #E5E0DB;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.formGroup input:focus {
+  outline: none;
+  border-color: #A1887F;
+  box-shadow: 0 0 0 3px rgba(161, 136, 127, 0.2);
+}
+.formGroup small {
+  display: block;
+  margin-top: 0.5rem;
+  color: #8C837D;
+}
+
+.submitButton {
+  width: 100%;
+  padding: 1rem;
+  margin-top: 1rem;
+  background-color: #A1887F;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  font-family: var(--font-primary);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.submitButton:hover {
+  background-color: #84675c;
 }/*# sourceMappingURL=style.css.map */

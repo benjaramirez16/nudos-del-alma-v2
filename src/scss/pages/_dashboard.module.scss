@@ -1,0 +1,65 @@
+@use '../abstracts/variables' as var;
+
+.dashboard {
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 2rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var.$color-border;
+
+  h1 {
+    font-family: var.$font-primary;
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 1.1rem;
+    color: var.$color-text-light;
+  }
+}
+
+.nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.navLink,
+.navLinkDisabled {
+  display: block;
+  padding: 2rem;
+  text-align: center;
+  font-family: var.$font-primary;
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid var.$color-border;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.navLink {
+  background-color: var.$color-white;
+  color: var.$color-text;
+
+  &:hover {
+    background-color: var.$color-primary;
+    border-color: var.$color-primary;
+    color: var.$color-white;
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.navLinkDisabled {
+  background-color: #f9fafb; // Un gris muy claro
+  color: var.$color-text-light;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
