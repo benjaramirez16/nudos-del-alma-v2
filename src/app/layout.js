@@ -1,6 +1,7 @@
 import { Cormorant_Garamond, Lato } from 'next/font/google'; // 1. Nuevas fuentes importadas
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { CartProvider } from '@/context/CartContext';
 import '@/scss/style.scss';
 
 // 2. Configuración de las nuevas fuentes
@@ -26,9 +27,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="es">
       <body className={`${cormorant.variable} ${lato.variable}`}>
+        <CartProvider>
         <Header />
         {children}
         <Footer />
+        </CartProvider>
       </body>
     </html>
   );

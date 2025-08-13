@@ -41,3 +41,37 @@
     color: var.$color-primary; // Nuestro nuevo color de acento
   }
 }
+
+.cartIcon {
+  position: relative;
+  color: var.$color-text;
+  font-size: 1.5rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.cartCount {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background-color: var.$color-primary;
+  color: var.$color-white;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-family: var.$font-secondary;
+  // Pequeño borde para que resalte
+  border: 2px solid var.$color-background; 
+}
+
+.header__rightGroup {
+  display: flex;
+  align-items: center;
+  gap: 2rem; // Mantiene el espaciado entre la lista y el carrito
+}
