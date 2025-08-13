@@ -1,29 +1,47 @@
-'use client'; // <-- 1. Convertimos a Componente de Cliente
+'use client';
 
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { useCart } from '@/context/CartContext'; // 2. Importamos nuestro hook del carrito
-import { FaShoppingCart } from 'react-icons/fa'; // 3. Importamos un ícono que ya tenemos instalado
+import { useCart } from '@/context/CartContext';
+import { FaShoppingCart, FaBars, FaTimes } from 'react-icons/fa';
 import styles from '@/scss/components/_header.module.scss';
 
 const Header = () => {
-  const { cartItems } = useCart(); // 4. Obtenemos los items del carrito desde el contexto
+  const { cartItems } = useCart();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // 5. Calculamos la cantidad total de productos (sumando las cantidades de cada item)
   const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
 
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  // Este efecto controla el scroll del body
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.classList.add('menu-open');
+    } else {
+      document.body.classList.remove('menu-open');
+    }
+
+    // Función de limpieza para asegurarse de que la clase se elimine
+    return () => {
+      document.body.classList.remove('menu-open');
+    };
+  }, [isMenuOpen]); // Se ejecuta cada vez que 'isMenuOpen' cambia
+
   return (
-    <header className={styles.header}>
+    <header className={`${styles.header} ${isMenuOpen ? styles.menuIsOpen : ''}`}>
       <nav className={styles.header__nav}>
         <Link href="/" className={styles.header__logo}>
           Nudos del Alma
         </Link>
-        {/* NUEVO CONTENEDOR PARA LOS ELEMENTOS DE LA DERECHA */}
         <div className={styles.header__rightGroup}>
-          <ul className={styles.header__list}>
-            <li><Link href="/" className={styles.header__link}>Inicio</Link></li>
-            <li><Link href="/productos" className={styles.header__link}>Productos</Link></li>
-            <li><Link href="/nosotros" className={styles.header__link}>Nosotros</Link></li>
-            <li><Link href="/contacto" className={styles.header__link}>Contacto</Link></li>
+          <ul className={`${styles.header__list} ${isMenuOpen ? styles.isOpen : ''}`}>
+            <li><Link href="/" className={styles.header__link} onClick={toggleMenu}>Inicio</Link></li>
+            <li><Link href="/productos" className={styles.header__link} onClick={toggleMenu}>Productos</Link></li>
+            <li><Link href="/nosotros" className={styles.header__link} onClick={toggleMenu}>Nosotros</Link></li>
+            <li><Link href="/contacto" className={styles.header__link} onClick={toggleMenu}>Contacto</Link></li>
           </ul>
           <Link href="/carrito" className={styles.cartIcon}>
             <FaShoppingCart />
@@ -31,6 +49,9 @@ const Header = () => {
               <span className={styles.cartCount}>{totalItems}</span>
             )}
           </Link>
+          <button className={styles.hamburgerButton} onClick={toggleMenu}>
+            {isMenuOpen ? <FaTimes /> : <FaBars />}
+          </button>
         </div>
       </nav>
     </header>

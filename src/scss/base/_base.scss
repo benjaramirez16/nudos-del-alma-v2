@@ -8,3 +8,8 @@ body {
   background-color: var.$color-background;
   line-height: 1.6;
 }
+
+// Bloquea el scroll del body cuando el menú está abierto
+body.menu-open {
+  overflow: hidden;
+}

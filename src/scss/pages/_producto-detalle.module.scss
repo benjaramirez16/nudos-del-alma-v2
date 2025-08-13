@@ -69,3 +69,8 @@
     background-color: var.$color-primary-dark;
   }
 }
+
+.addToCartButton.added {
+  background-color: #2E7D32; // Un color verde para indicar éxito
+  cursor: default;
+}

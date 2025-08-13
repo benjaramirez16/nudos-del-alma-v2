@@ -23,32 +23,47 @@ export function CartProvider({ children }) {
   };
 
   const addToCart = (product) => {
-    // Leemos el estado actual directamente
-    const existingItem = cartItems.find(item => item._id === product._id);
-
     let newItems;
+    const existingItem = cartItems.find(item => item._id === product._id);
     if (existingItem) {
-      // Calculamos el nuevo array si el item ya existe
       newItems = cartItems.map(item =>
-        item._id === product._id
-          ? { ...item, quantity: item.quantity + 1 }
-          : item
+        item._id === product._id ? { ...item, quantity: item.quantity + 1 } : item
       );
     } else {
-      // Calculamos el nuevo array si el item es nuevo
       newItems = [...cartItems, { ...product, quantity: 1 }];
     }
-
-    // AHORA, HACEMOS LAS DOS COSAS POR SEPARADO Y EN ORDEN
-    // 1. Guardamos en localStorage
     updateLocalStorage(newItems);
-    // 2. Actualizamos el estado de React
     setCartItems(newItems);
   };
+
+  const removeFromCart = (productId) => {
+    const newItems = cartItems.filter(item => item._id !== productId);
+    updateLocalStorage(newItems);
+    setCartItems(newItems);
+  };
+
+  const decreaseQuantity = (product) => {
+    let newItems;
+    const existingItem = cartItems.find(item => item._id === product._id);
+    if (existingItem.quantity === 1) {
+      newItems = cartItems.filter(item => item._id !== product._id);
+    } else {
+      newItems = cartItems.map(item =>
+        item._id === product._id ? { ...item, quantity: item.quantity - 1 } : item
+      );
+    }
+    updateLocalStorage(newItems);
+    setCartItems(newItems);
+  };
+
+  const cartTotal = cartItems.reduce((total, item) => total + parseFloat(item.price.replace('.', '')) * item.quantity, 0);
 
   const value = {
     cartItems,
     addToCart,
+    removeFromCart,
+    decreaseQuantity,
+    cartTotal,
   };
 
   return (
