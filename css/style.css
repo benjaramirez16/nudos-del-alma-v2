@@ -1059,4 +1059,17 @@ body {
 }
 .submitButton:hover {
   background-color: #84675c;
+}
+
+.imagePreview {
+  margin-top: 1rem;
+  border: 1px solid #E5E0DB;
+  display: inline-block;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.imagePreview img {
+  display: block;
+  -o-object-fit: cover;
+     object-fit: cover;
 }/*# sourceMappingURL=style.css.map */

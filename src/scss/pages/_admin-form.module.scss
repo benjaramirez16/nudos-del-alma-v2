@@ -64,3 +64,16 @@
     background-color: var.$color-primary-dark;
   }
 }
+
+.imagePreview {
+  margin-top: 1rem;
+  border: 1px solid var.$color-border;
+  display: inline-block;
+  border-radius: 8px;
+  overflow: hidden;
+
+  img {
+    display: block;
+    object-fit: cover;
+  }
+}
