@@ -133,3 +133,21 @@
     background-color: var.$color-primary-dark;
   }
 }
+
+.successMessage {
+  text-align: center;
+  color: #2E7D32;
+  background-color: #E8F5E9;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.errorMessage {
+  text-align: center;
+  color: #C62828;
+  background-color: #FFEBEE;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
