@@ -1,18 +1,23 @@
-'use client'; // 1. Convertimos a Componente de Cliente
+'use client';
 
-import { useEffect } from 'react'; // 2. Importamos useEffect
+import { useEffect } from 'react';
 import Link from 'next/link';
 import { FaCheckCircle } from 'react-icons/fa';
-import { useCart } from '@/context/CartContext'; // 3. Importamos el hook del carrito
+import { useCart } from '@/context/CartContext';
 import styles from '@/scss/pages/_pago-exitoso.module.scss';
 
 export default function PagoExitosoPage() {
-  const { clearCart } = useCart(); // 4. Obtenemos la función para limpiar el carrito
+  const { clearCart } = useCart();
 
-  // 5. Usamos useEffect para limpiar el carrito solo una vez, cuando la página carga
   useEffect(() => {
-    clearCart();
-  }, [clearCart]); // El array de dependencias asegura que se ejecute de forma segura
+    // Creamos un pequeño temporizador para retrasar la limpieza del carrito
+    const timer = setTimeout(() => {
+      clearCart();
+    }, 100); // Un retraso de 100 milisegundos es suficiente
+
+    // Esta es una 'función de limpieza' para evitar errores si el usuario navega muy rápido
+    return () => clearTimeout(timer);
+  }, [clearCart]);
 
   return (
     <main className={styles.main}>
