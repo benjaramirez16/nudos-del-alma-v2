@@ -1307,4 +1307,42 @@ body.menu-open {
   font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
+}
+
+.emptyCart {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  border: 1px solid #E5E0DB;
+}
+.emptyCart p {
+  color: #8C837D;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+}
+
+.goToShopButton {
+  display: inline-block;
+  padding: 0.8rem 2.5rem;
+  background-color: #A1887F;
+  color: #FFFFFF;
+  text-decoration: none;
+  border-radius: 50px;
+  font-family: var(--font-primary);
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.goToShopButton:hover {
+  background-color: #84675c;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(161, 136, 127, 0.3);
+}
+
+.cartItems.isEmpty {
+  grid-column: 1/-1;
 }/*# sourceMappingURL=style.css.map */
