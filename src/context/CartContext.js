@@ -11,6 +11,7 @@ export function useCart() {
 export function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState([]);
 
+  // Al cargar la aplicación, intenta recuperar el carrito desde localStorage
   useEffect(() => {
     const items = localStorage.getItem('cartItems');
     if (items) {
@@ -18,6 +19,7 @@ export function CartProvider({ children }) {
     }
   }, []);
 
+  // Función auxiliar para mantener sincronizado el localStorage
   const updateLocalStorage = (items) => {
     localStorage.setItem('cartItems', JSON.stringify(items));
   };
@@ -25,6 +27,7 @@ export function CartProvider({ children }) {
   const addToCart = (product) => {
     let newItems;
     const existingItem = cartItems.find(item => item._id === product._id);
+
     if (existingItem) {
       newItems = cartItems.map(item =>
         item._id === product._id ? { ...item, quantity: item.quantity + 1 } : item
@@ -43,9 +46,11 @@ export function CartProvider({ children }) {
   };
 
   const decreaseQuantity = (product) => {
-    let newItems;
     const existingItem = cartItems.find(item => item._id === product._id);
-    if (existingItem.quantity === 1) {
+    let newItems;
+
+    if (existingItem?.quantity === 1) {
+      // Si la cantidad es 1, disminuir es lo mismo que eliminar
       newItems = cartItems.filter(item => item._id !== product._id);
     } else {
       newItems = cartItems.map(item =>
@@ -56,13 +61,24 @@ export function CartProvider({ children }) {
     setCartItems(newItems);
   };
 
-  const cartTotal = cartItems.reduce((total, item) => total + parseFloat(item.price.replace('.', '')) * item.quantity, 0);
+  const clearCart = () => {
+    setCartItems([]);
+    updateLocalStorage([]);
+  };
 
+  // Calcula el total del carrito
+  const cartTotal = cartItems.reduce((total, item) => {
+    const price = Number(item.price.replace(/[^0-9,-]+/g, "").replace(",", "."));
+    return total + price * item.quantity;
+  }, 0);
+
+  // El objeto 'value' que se pasa a todos los componentes hijos
   const value = {
     cartItems,
     addToCart,
     removeFromCart,
     decreaseQuantity,
+    clearCart,
     cartTotal,
   };
 
