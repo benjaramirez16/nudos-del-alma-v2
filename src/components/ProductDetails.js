@@ -36,7 +36,7 @@ export default function ProductDetails({ product }) {
         <h1 className={styles.productName}>{product.name}</h1>
         <p className={styles.productPrice}>$ {product.price}</p>
         <p className={styles.productDescription}>
-          Aquí iría una descripción detallada del producto. Cada pieza es única, tejida a mano con materiales 100% naturales para llevar calidez a tu hogar.
+          {product.description}
         </p>
         {/* 5. El botón ahora llama a nuestra nueva función handleAddToCart */}
         <button 

@@ -1,11 +1,16 @@
 import Link from 'next/link';
 import styles from '@/scss/pages/_admin-products.module.scss';
 import ProductsTable from '@/components/admin/ProductsTable';
-import { getProducts } from '@/lib/data'; // <-- 1. Importamos la función directa
+import { getProducts } from '@/lib/data';
 
 export default async function AdminProductsPage() {
-  // 2. LLAMAMOS A LA FUNCIÓN DIRECTAMENTE, SIN FETCH
-  const { data: products } = await getProducts();
+  const { data: rawProducts } = await getProducts();
+
+  
+  const products = rawProducts.map(product => ({
+    ...product,
+    _id: product._id.toString(), // Convertimos el ObjectId de MongoDB a un string simple
+  }));
 
   return (
     <div className={styles.container}>
@@ -17,6 +22,7 @@ export default async function AdminProductsPage() {
       </div>
 
       <div className={styles.tableWrapper}>
+        {/* Ahora pasamos la lista de productos ya procesada y segura */}
         <ProductsTable products={products} />
       </div>
     </div>
