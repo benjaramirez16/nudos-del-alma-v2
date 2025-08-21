@@ -1,7 +1,9 @@
+// /src/components/Header.js
+
 'use client';
 
 import { useState, useEffect } from 'react';
-import { usePathname } from 'next/navigation'; // 1. Importamos el nuevo hook
+import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { useCart } from '@/context/CartContext';
 import { FaShoppingCart, FaBars, FaTimes } from 'react-icons/fa';
@@ -10,7 +12,12 @@ import styles from '@/scss/components/_header.module.scss';
 const Header = () => {
   const { cartItems } = useCart();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const pathname = usePathname(); // 2. Obtenemos la ruta actual de la URL
+  const pathname = usePathname();
+
+  // --- INICIO DE LA LÓGICA NUEVA ---
+  const isAdminRoute = pathname.startsWith('/admin');
+  const logoHref = isAdminRoute ? '/admin/dashboard' : '/';
+  // --- FIN DE LA LÓGICA NUEVA ---
 
   const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
 
@@ -18,12 +25,10 @@ const Header = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // Efecto para cerrar el menú cuando cambia la ruta
   useEffect(() => {
     setIsMenuOpen(false);
   }, [pathname]);
 
-  // Efecto para bloquear el scroll del body
   useEffect(() => {
     if (isMenuOpen) {
       document.body.classList.add('menu-open');
@@ -38,22 +43,42 @@ const Header = () => {
   return (
     <header className={`${styles.header} ${isMenuOpen ? styles.menuIsOpen : ''}`}>
       <nav className={styles.header__nav}>
-        <Link href="/" className={styles.header__logo}>
+        {/* El logo ahora usa el enlace dinámico */}
+        <Link href={logoHref} className={styles.header__logo}>
           Nudos del Alma
         </Link>
+        
         <div className={styles.header__rightGroup}>
-          <ul className={`${styles.header__list} ${isMenuOpen ? styles.isOpen : ''}`}>
-            <li><Link href="/" className={styles.header__link}>Inicio</Link></li>
-            <li><Link href="/productos" className={styles.header__link}>Productos</Link></li>
-            <li><Link href="/nosotros" className={styles.header__link}>Nosotros</Link></li>
-            <li><Link href="/contacto" className={styles.header__link}>Contacto</Link></li>
-          </ul>
-          <Link href="/carrito" className={styles.cartIcon}>
-            <FaShoppingCart />
-            {totalItems > 0 && (
-              <span className={styles.cartCount}>{totalItems}</span>
-            )}
-          </Link>
+          {/* --- RENDERIZADO CONDICIONAL DEL MENÚ --- */}
+
+          {/* Si NO es una ruta de admin, muestra el menú público */}
+          {!isAdminRoute && (
+            <ul className={`${styles.header__list} ${isMenuOpen ? styles.isOpen : ''}`}>
+              <li><Link href="/" className={styles.header__link}>Inicio</Link></li>
+              <li><Link href="/productos" className={styles.header__link}>Productos</Link></li>
+              <li><Link href="/nosotros" className={styles.header__link}>Nosotros</Link></li>
+              <li><Link href="/contacto" className={styles.header__link}>Contacto</Link></li>
+            </ul>
+          )}
+
+          {/* Si SÍ es una ruta de admin, muestra el menú de admin */}
+          {isAdminRoute && (
+            <ul className={`${styles.header__list} ${isMenuOpen ? styles.isOpen : ''}`}>
+              <li><Link href="/admin/dashboard" className={styles.header__link}>Dashboard</Link></li>
+              <li><Link href="/admin/products" className={styles.header__link}>Productos</Link></li>
+            </ul>
+          )}
+
+          {/* El carrito solo se muestra si NO es una ruta de admin */}
+          {!isAdminRoute && (
+            <Link href="/carrito" className={styles.cartIcon}>
+              <FaShoppingCart />
+              {totalItems > 0 && (
+                <span className={styles.cartCount}>{totalItems}</span>
+              )}
+            </Link>
+          )}
+
           <button className={styles.hamburgerButton} onClick={toggleMenu}>
             {isMenuOpen ? <FaTimes /> : <FaBars />}
           </button>
